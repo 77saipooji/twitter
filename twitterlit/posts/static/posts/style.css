@@ -1,0 +1,106 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+} 
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #a6ecf0;
+    color:#14171a;
+}
+
+a {
+    color: #1da1f2;
+    text-decoration: underline;
+
+}
+
+header {
+    background-color: white;
+    border-bottom: 1px solid #ccc;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+header h1{
+    font-size: 20px;
+}
+    
+header h1 a{
+    color: #1da1f2;
+}
+header p{
+    font-size: 14px;
+}
+
+main{
+    width: 600px;
+    margin: 20px auto;
+}
+
+.messages {
+    list-style: none;
+    margin-botttom: 15px;
+    padding-left: 0;
+
+}
+
+.messages li {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    padding: 8px;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+/* Post styling */
+.post {
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin-bottom: 20px;
+
+}
+.post p{
+    margin-bottom: 10px;
+}
+.post .date{
+    color: #657786;
+    font-size: 13px;
+}
+.post strong a{
+    color: #14171a;
+}
+}
+
+
+
+/Buttoms/
+
+.button-link {
+
+    background: name;
+
+    border: name;
+
+    color: #1da1f2;
+
+    cursor: pointer;
+
+    font-size: 14px;
+
+    padding: 0;
+
+}
+
+.buttom-delete {
+
+    color: #e0245e;
+
+}

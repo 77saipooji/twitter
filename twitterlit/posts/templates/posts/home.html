@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <static> Twitter Lite</static>
+    <link rel="dtylesheet" href="{% static 'posts/css/style.css'}">
+</head>
+
+<body>
+    <header>
+        <h1><a href="{% url 'home' %}"> Twitter Lite</a></h1>
+        
+            {% if user.is_authenticated %}
+            <p>
+                Logged in as <a href="{% url 'profile' user.username %}">
+                @{{ user.username}}</a>
+            </p>
+            <p><a href="{% url 'create_post' %}">New Post</a></p>
+            <form method="post" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button type="submit" class="button-link">logout</button>
+            </form>
+            {% else %}
+            <p>
+            <a href="{% url 'login' %}">Login</a>
+            <a href="{% url 'register' %}">register</a>
+            </p>
+            {% endif %}
+
+            <hr>
+    </header>
+
+    <main>
+        {% if user.is_authenticated %}
+        {% if posts %}
+        {% for post in posts %}
+        <div class="post">
+            <p>
+                <strong>
+                    <a href="{% url 'profile'
+                    post.user.username %}">@{{ post.user.username }}</a>
+                </strong>
+                -{{post.created_at|date:"SHORT_DATETIME_FORMAT" }}
+            </p>
+            <p>{{ post.content }}</p>
+
+            {% if user == post.user %}
+            <form method="post" actions="{% url 'delete_post' post.id %}" class="form-inline">
+                {% csrf_token %}
+                <button type="submit" class="button-link button-delete">Delete</button>
+            </form>
+            {% endif %}
+
+        </div>
+
+        <hr>
+        
+        {% endfor %}
+        {% else %}
+
+        <p>No posts yet.Be the first </p>
+
+        {% endif %}
+        {% else %}
+        <p> Please <a href="{% url 'login' %}">log in</a>to see posts.</p>
+        {% endif %}
+    </main>
+</body>
+
+</html>
+            
